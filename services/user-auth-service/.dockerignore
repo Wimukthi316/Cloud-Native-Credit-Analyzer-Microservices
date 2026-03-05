@@ -1,0 +1,40 @@
+# Dependencies — never copy into the image; npm ci will re-install inside
+node_modules/
+
+# TypeScript source — not needed in the final runner stage
+src/
+
+# TypeScript config — compiled output is what we ship
+tsconfig.json
+
+# Test, coverage, and local tooling output
+coverage/
+jest.config.*
+**/*.test.ts
+**/*.spec.ts
+
+# Build artefacts from the host machine
+dist/
+
+# Environment files — secrets must be injected via ECS task definition / SSM
+.env
+.env.*
+!.env.example
+
+# Git & editor
+.git/
+.gitignore
+.editorconfig
+.vscode/
+
+# CI / documentation
+.github/
+*.md
+
+# Docker files themselves (not needed inside image)
+Dockerfile*
+.dockerignore
+
+# OS noise
+.DS_Store
+Thumbs.db
